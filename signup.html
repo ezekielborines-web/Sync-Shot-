@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sign up · SYNC SHOT</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,500;6..72,600&family=DM+Sans:wght@400;500;700&display=swap">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<header id="hdr"></header>
+<main id="app">
+<div class="auth card" id="box"><h2>Create your account</h2><p style="color:var(--mute);margin:0">Your photos are saved here after the session ends.</p>
+  <div class="field"><label for="em">Email</label><input class="inp" id="em" type="email" autocomplete="email"><div class="msg" id="me"></div></div>
+  <div class="field" style="margin-top:0"><label for="un">Username</label><input class="inp" id="un" autocomplete="username"><div class="msg" id="mu">3–20 letters, numbers, dots or underscores.</div></div>
+  <div class="field"><label for="pw">Password</label><div class="pw"><input class="inp" id="pw" type="password" autocomplete="new-password"><button type="button" data-t="pw" aria-label="Show or hide password">Show</button></div></div>
+  <div class="meter"><b id="bar"></b></div><div class="msg" id="ml"></div>
+  <ul class="rules" id="rules"></ul>
+  <div class="msg" id="m" style="margin-top:12px"></div>
+  <button class="btn pri" id="go" style="width:100%">Create account</button>
+  <p class="sw">Already have one? <a href="login.html">Log in</a></p></div>
+</main>
+<script type="module" src="js/signup.js"></script>
+</body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SYNC SHOT</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,500;6..72,600&family=DM+Sans:wght@400;500;700&display=swap">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<header id="hdr"></header>
+<main id="app">
+<section class="hero">
+  <div>
+    <h1>Take the photo strip together, wherever you are.</h1>
+    <p>SYNC SHOT is a real-time photobooth. Pick a frame, set the timer, add a filter, and raise your palm to shoot.</p>
+    <div class="card consent">
+      <h3>Camera access</h3>
+      <p style="margin:6px 0 0;color:var(--mute)">SYNC SHOT needs your camera to show the live preview and take your photos. Video stays on your device. It is only shared with your partner inside a Sync room.</p>
+      <label><input type="checkbox" id="agree"><span>I agree that SYNC SHOT may use my camera.</span></label>
+      <div class="row">
+        <button class="btn pri" id="skip" disabled>Skip and click</button>
+        <button class="btn" id="l2" disabled>Log in</button>
+        <button class="btn" id="s2" disabled>Sign up</button>
+      </div>
+    </div>
+    <p class="why"><b style="color:var(--ink)">Why make an account?</b> Your photos stay saved to your account after the session ends, and you can use Sync rooms. Skip and click works without one, but photos are gone when the page reloads.</p>
+  </div>
+  <div class="strip" aria-hidden="true"><div class="a">You</div><div class="b">Them</div><div class="a">You</div><div class="b">Them</div><small>SYNC SHOT</small></div>
+</section>
+</main>
+<script type="module" src="js/landing.js"></script>
+</body>
+</html>

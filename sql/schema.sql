@@ -1,0 +1,44 @@
+-- SYNC SHOT database schema (MySQL / MariaDB)
+-- XAMPP: import this whole file in phpMyAdmin (Import tab).
+-- On a web host: delete the first two statements and import into the database the host created for you.
+CREATE DATABASE IF NOT EXISTS sync_shot CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+USE sync_shot;
+
+CREATE TABLE IF NOT EXISTS users (
+  id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+  email VARCHAR(190) NOT NULL UNIQUE,
+  username VARCHAR(20) NOT NULL UNIQUE,
+  password_hash VARCHAR(255) NOT NULL,
+  verified TINYINT(1) NOT NULL DEFAULT 0,
+  verify_token CHAR(64) NULL,
+  created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  INDEX (verify_token)
+) ENGINE=InnoDB;
+
+CREATE TABLE IF NOT EXISTS photos (
+  id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+  user_id INT UNSIGNED NOT NULL,
+  filename VARCHAR(64) NOT NULL,
+  frame VARCHAR(20) NOT NULL,
+  created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  INDEX (user_id),
+  FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE
+) ENGINE=InnoDB;
+
+CREATE TABLE IF NOT EXISTS rooms (
+  id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+  code CHAR(6) NOT NULL UNIQUE,
+  host_id INT UNSIGNED NOT NULL,
+  frame VARCHAR(20) NOT NULL DEFAULT 'window',
+  created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  FOREIGN KEY (host_id) REFERENCES users(id) ON DELETE CASCADE
+) ENGINE=InnoDB;
+
+CREATE TABLE IF NOT EXISTS room_members (
+  room_id INT UNSIGNED NOT NULL,
+  user_id INT UNSIGNED NOT NULL,
+  joined_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (room_id, user_id),
+  FOREIGN KEY (room_id) REFERENCES rooms(id) ON DELETE CASCADE,
+  FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE
+) ENGINE=InnoDB;

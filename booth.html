@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Photobooth · SYNC SHOT</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,500;6..72,600&family=DM+Sans:wght@400;500;700&display=swap">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<header id="hdr"></header>
+<main id="app">
+<div id="guestNote"></div>
+<div class="mac">
+  <div class="mac-bar"><span class="dots" aria-hidden="true"><i></i><i></i><i></i></span><b>SYNC SHOT</b><small id="layoutName"></small></div>
+  <div class="screen" id="cam">
+    <video id="v" class="srcvid" playsinline muted></video>
+    <canvas id="view"></canvas>
+    <div class="hud">
+      <div class="hl"><span class="live"><i></i>Live</span><span id="pose"></span></div>
+      <div class="hr">
+        <div class="seg" id="timerSeg" role="group" aria-label="Timer"><button class="btn" data-t="0" aria-pressed="false">Off</button><button class="btn" data-t="5" aria-pressed="true">5s</button><button class="btn" data-t="10" aria-pressed="false">10s</button></div>
+        <button class="btn hbtn" id="snd" aria-pressed="true">Sound</button>
+      </div>
+    </div>
+    <div class="ghint" id="gHint" hidden><span id="gTxt"></span><i><b id="gBar"></b></i></div>
+    <div class="strength" id="strength" hidden><span id="effName"></span><input type="range" id="amt" min="0" max="100" value="70" aria-label="Effect strength"><b id="av">70%</b></div>
+    <div class="count" id="cnt"><svg viewBox="0 0 120 120" aria-hidden="true"><circle class="bg" cx="60" cy="60" r="54"/><circle class="fg" cx="60" cy="60" r="54"/></svg><b id="num"></b></div>
+    <div class="flash" id="fl"></div>
+    <div class="fxpanel" id="fxPanel" hidden>
+      <div class="fxhead"><button class="btn hbtn" id="fxPrev" aria-label="Previous page">&lsaquo;</button><b id="fxTitle"></b><button class="btn hbtn" id="fxNext" aria-label="Next page">&rsaquo;</button><button class="btn hbtn" id="fxClose">Close</button></div>
+      <div class="fxgrid" id="fxGrid"></div>
+    </div>
+  </div>
+  <div class="thumbrow" id="thumbs"></div>
+  <div class="mac-tools">
+    <div class="tl">
+      <span class="tipwrap" data-tip="Frame types" id="ftWrap">
+        <button class="btn tbtn" id="ftBtn" aria-haspopup="true" aria-expanded="false"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>Frame</button>
+        <div class="pop" id="ftMenu" role="menu" hidden></div>
+      </span>
+      <span class="tipwrap" data-tip="Raise palm to capture"><button class="btn switch" id="gs" role="switch" aria-checked="false"><i></i><span>Palm</span></button></span>
+    </div>
+    <button class="shutter" id="shoot" aria-label="Take photo"><span><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 8h3l2-2h6l2 2h3v11H4z"/><circle cx="12" cy="13" r="3.5"/></svg></span></button>
+    <div class="tr"><button class="btn tbtn" id="reset">Start over</button><button class="btn tbtn" id="fxBtn">Effects</button></div>
+  </div>
+</div>
+<p class="status" id="status" aria-live="polite">Press the shutter when you are ready.</p>
+<div class="result" id="res" hidden></div>
+</main>
+<script type="module" src="js/booth.js"></script>
+</body>
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Log in · SYNC SHOT</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,500;6..72,600&family=DM+Sans:wght@400;500;700&display=swap">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<header id="hdr"></header>
+<main id="app">
+<div class="auth card" id="box"><h2>Welcome back</h2><p style="color:var(--mute);margin:0">Log in to open your saved photos and Sync rooms.</p>
+  <div class="field"><label for="un">Username</label><input class="inp" id="un" autocomplete="username"></div>
+  <div class="field"><label for="pw">Password</label><div class="pw"><input class="inp" id="pw" type="password" autocomplete="current-password"><button type="button" data-t="pw" aria-label="Show or hide password">Show</button></div></div>
+  <div class="msg" id="m"></div>
+  <button class="btn pri" id="go" style="width:100%">Log in</button>
+  <p class="sw">No account yet? <a href="signup.html">Sign up</a></p></div>
+</main>
+<script type="module" src="js/login.js"></script>
+</body>
+</html>
